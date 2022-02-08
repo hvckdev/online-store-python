@@ -24,4 +24,4 @@ class Order(models.Model):
     status = models.IntegerField()
 
     def __str__(self):
-        return self.status
+        return 'Delivered' if self.status == 1 else 'On the way'
