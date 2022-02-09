@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'web_shop.shop'
 ]
 
 MIDDLEWARE = [
@@ -79,8 +80,8 @@ DATABASES = {
         'NAME': 'shop',
         'USER': 'shop',
         'PASSWORD': 'ciHSM2FnT6cCx7pF',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'HOST': '192.168.0.158',
+        'PORT': '3306',
     }
 }
 
