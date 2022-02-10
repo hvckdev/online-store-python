@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} login {% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <form method="{% url '' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    {{ form.password }}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
