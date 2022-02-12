@@ -1,4 +1,3 @@
-from django.contrib.auth.views import PasswordChangeView
 from django.urls import path
 
 from web_shop.accounts import views
