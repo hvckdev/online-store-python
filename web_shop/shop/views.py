@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 from web_shop.shop.models import Product, Order
 
@@ -9,6 +9,6 @@ class ProductListView(generic.ListView):
     template_name = 'shop/product_list.html'
 
 
-class OrderListView(generic.ListView):
+class OrderListView(LoginRequiredMixin, generic.ListView):
     model = Order
     template_name = 'shop/order_list.html'

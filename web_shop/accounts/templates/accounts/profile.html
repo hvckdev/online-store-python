@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_filters %}
+
 {% block title %} profile {% endblock %}
 
 {% block content %}
-
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Edit {{ request.user.username }}</h3>
+            <form method="POST" action="{% url 'profile' %}">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-dark float-end">Edit profile</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}

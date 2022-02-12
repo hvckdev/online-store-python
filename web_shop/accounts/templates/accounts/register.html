@@ -2,13 +2,13 @@
 
 {% load crispy_forms_filters %}
 
-{% block title %} login {% endblock %}
+{% block title %} register {% endblock %}
 
 {% block content %}
-    <div class="card">
+     <div class="card">
         <div class="card-body">
-            <h3 class="card-title">Log in</h3>
-            <form method="POST" action="{% url 'login' %}">
+            <h3 class="card-title">Registration</h3>
+            <form method="POST" action="{% url 'register' %}">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <button type="submit" class="btn btn-dark float-end">Login</button>
