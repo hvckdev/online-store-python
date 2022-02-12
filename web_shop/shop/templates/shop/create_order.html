@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_filters %}
+
+{% block title %} login {% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Order {{ product.category.name }} - {{ product.name }}</h3>
+            <form method="POST" action="{% url 'create-order' product.id %}">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-dark float-end">Order</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

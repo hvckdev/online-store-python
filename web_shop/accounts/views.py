@@ -13,7 +13,7 @@ class CustomLoginView(LoginView):
     form_class = AuthenticationForm
     template_name = 'accounts/login.html'
     redirect_authenticated_user = True
-    next_page = '/profile'
+    next_page = '/orders'
 
 
 class RegisterFormView(FormView):

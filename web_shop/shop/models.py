@@ -25,9 +25,9 @@ class Product(models.Model):
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    address = models.TextField()
+    address = models.CharField(max_length=256)
     tracking_number = models.TextField()
-    status = models.IntegerField()
+    status = models.IntegerField(default=0)
 
     def __str__(self):
         return 'Delivered' if self.status == 1 else 'On the way'

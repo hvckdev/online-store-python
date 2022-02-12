@@ -1,5 +1,33 @@
 {% extends 'base.html' %}
 {% block title %} orders {% endblock %}
 {% block content %}
-asd
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Orders</h3>
+            {% if order_list %}
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Product</th>
+                        <th>Tracking Number</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in order_list %}
+                        <tr>
+                            <td>{{ order.id }}</td>
+                            <td>{{ order.product.category }} - {{ order.product }}</td>
+                            <td>{{ order.tracking_number }}</td>
+                            <td>{{ order }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <h5 class="text-center">You have no orders!</h5>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
