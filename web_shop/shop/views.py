@@ -6,6 +6,10 @@ from web_shop.shop.models import Product, Order
 
 
 # Create your views here
+class HomeView(generic.TemplateView):
+    template_name = 'shop/home.html'
+
+
 class ProductListView(generic.ListView):
     model = Product
     template_name = 'shop/product_list.html'

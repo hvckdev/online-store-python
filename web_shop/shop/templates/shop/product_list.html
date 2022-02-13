@@ -5,27 +5,9 @@
 {% endblock %}
 
 {% block content %}
-    <div class="my-5 pt-5 px-5 card">
-        <div class="container p-5">
-            <div class="row">
-                <div class="col animated fadeIn" data-appear-anim-style="fadeIn">
-                    <h1 class="display-4 fw-bold text-center">
-                        My merch
-                    </h1>
-                    <h3 class="mg-md float-none text-center">
-                        The best merch that u ever seen
-                    </h3>
-                    <div class="text-center">
-                        <a href="#available" class="btn btn-outline-dark">Let`s check</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="mt-5 p-3 card" id="available">
         <div class="container mb-3 px-1">
-            <h3 class="text-center mt-3">Available to buy</h3>
+            <h3 class="text-center mt-3">Products</h3>
             <hr>
             {% if product_list %}
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
