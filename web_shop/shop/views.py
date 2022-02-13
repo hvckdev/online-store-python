@@ -1,6 +1,5 @@
-import random
-
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 from django.views import generic
 
 from web_shop.shop.models import Product, Order
@@ -26,7 +25,7 @@ class CreateOrderView(generic.CreateView):
     model = Order
     template_name = 'shop/create_order.html'
     fields = ['address']
-    success_url = '/orders'
+    success_url = reverse_lazy('orders')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
