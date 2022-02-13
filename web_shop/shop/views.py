@@ -1,7 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
+from django_filters.views import FilterView
 
+from web_shop.shop.filters import ProductFilter
 from web_shop.shop.models import Product, Order
 
 
@@ -10,9 +12,10 @@ class HomeView(generic.TemplateView):
     template_name = 'shop/home.html'
 
 
-class ProductListView(generic.ListView):
+class ProductListView(FilterView):
     model = Product
     template_name = 'shop/product_list.html'
+    filterset_class = ProductFilter
 
 
 class OrderListView(LoginRequiredMixin, generic.ListView):
