@@ -41,9 +41,15 @@
                                     <p class="card-title fw-bolder">{{ product.name }}</p>
                                     <p class="card-text">{{ product.description }}</p>
                                     <div class="d-flex justify-content-between align-items-center">
+                                        {% if request.user.is_authenticated %}
                                         <a href="{% url 'create-order' product.id %}" class="btn btn-sm btn-outline-dark">
                                             Buy for {{ product.price }} RUB
                                         </a>
+                                        {% else %}
+                                         <a href="#" class="btn btn-sm btn-outline-dark disabled">
+                                            Login to buy
+                                        </a>
+                                        {% endif %}
                                         <small class="text-muted">{{ product.quantity }} available</small>
                                     </div>
                                 </div>

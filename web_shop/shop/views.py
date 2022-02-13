@@ -21,17 +21,21 @@ class OrderListView(LoginRequiredMixin, generic.ListView):
         )
 
 
-class CreateOrderView(generic.CreateView):
+class CreateOrderView(LoginRequiredMixin, generic.CreateView):
     model = Order
     template_name = 'shop/create_order.html'
     fields = ['address']
     success_url = reverse_lazy('orders')
 
     def form_valid(self, form):
+        product = Product.objects.get(pk=self.kwargs.get('product_pk'))
         form.instance.user = self.request.user
-        form.instance.product = Product.objects.get(pk=self.kwargs.get('product_pk'))
+        form.instance.product = product
         form.instance.tracking_number = 'tracking-number-here'
         form.save()
+
+        product.quantity = product.quantity - 1
+        product.save()
 
         return super().form_valid(form)
 
