@@ -23,9 +23,17 @@ class Product(models.Model):
 
 
 class Order(models.Model):
+    SIZE_CHOICES = (
+        ('m', 'M'),
+        ('l', 'L'),
+        ('xl', 'XL'),
+        ('xxl', 'XXL')
+    )
+
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     address = models.CharField(max_length=256)
+    size = models.CharField(max_length=256, choices=SIZE_CHOICES)
     tracking_number = models.TextField()
     status = models.IntegerField(default=0)
 

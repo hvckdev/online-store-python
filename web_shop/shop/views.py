@@ -24,7 +24,7 @@ class OrderListView(LoginRequiredMixin, generic.ListView):
 class CreateOrderView(LoginRequiredMixin, generic.CreateView):
     model = Order
     template_name = 'shop/create_order.html'
-    fields = ['address']
+    fields = ['size', 'address']
     success_url = reverse_lazy('orders')
 
     def form_valid(self, form):
