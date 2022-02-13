@@ -16,7 +16,7 @@ Simple web shop application.
 
 ## Installation
 
-To install project configure settings file and run commands.
+To install project configure settings file and run command.
 
 ```bash
   python manage.py migrate
