@@ -32,7 +32,7 @@ class CustomPasswordChangeView(PasswordChangeView):
 
 
 class CustomLogoutView(LogoutView):
-    next_page = '/'
+    next_page = reverse_lazy('home')
 
 
 @login_required
